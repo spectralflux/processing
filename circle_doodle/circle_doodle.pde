@@ -7,14 +7,16 @@ void setup() {
 
 void draw() {
   background(0);
-  float r = 200.0;
-  float theta = 0;
+  float r = 0.0;
 
   for(int i = 0; i < 255; i++) {
-    stroke(i,i,i);
+    stroke(i,255-i,255-i);
+    float theta = (i/255.0)*TWO_PI;
     line(320,320, getX(320,r,theta),getY(320,r,theta));
-    theta += 0.1;
+    r += 1.1;
   }
+  
+  save("spiral1.png");
 }
 
 float getX(float cx, float r, float theta) {
